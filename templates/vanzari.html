@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block vanzari %}
+Vanzari
+{% endblock %}
+
+{% block vanzari_content %}
+    <table border="1" style="border-collapse: collapse; margin-bottom: 50px;">
+    <tr>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">ID Vanzare</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">ID Client</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Nume</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Prenume</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Data Cumpararii</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Cost Total</th>
+    </tr>
+        {% for vanzare in vanzari %}
+            <tr>
+                <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ vanzare[0] }}</td>
+                <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ vanzare[1] }}</td>
+                <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ vanzare[2] }}</td>
+                <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ vanzare[3] }}</td>
+                <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ vanzare[4] }}</td>
+                <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ vanzare[5] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

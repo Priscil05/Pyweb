@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block garantii %}
+Garantii
+{% endblock %}
+
+{% block garantii_content %}
+ <table border="1" style="border-collapse: collapse; margin-bottom: 50px;">
+    <tr>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">ID</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Nume</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Tip Garantie</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Data expirare</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Pret Garantie</th>
+    </tr>
+        {% for garantie in garantii %}
+            <tr>
+                <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ garantie[0] }}</td>
+                <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ garantie[1] }}</td>
+                <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ garantie[2] }}</td>
+                <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ garantie[3] }}</td>
+                <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ garantie[4] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

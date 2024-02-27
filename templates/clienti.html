@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block clienti %}
+Clienti
+{% endblock %}
+
+{% block clienti_content %}
+
+<table border="1" style="border-collapse: collapse; margin-bottom: 50px;">
+    <tr>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">ID</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Nume</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Prenume</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Email</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Telefon</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Adresa</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Tip Garantie</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Serie</th>
+    </tr>
+    {% for client in clienti %}
+        <tr>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ client[0] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ client[1] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ client[2] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ client[3] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ client[4] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ client[5] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ client[6] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ client[7] }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+
+
+
+<form method="POST" action="{{ url_for('clienti') }}" style="margin-top: 100px;">
+    Nume: <input type="text" name="nume" required><br>
+    Prenume: <input type="text" name="prenume" required><br>
+    Email: <input type="text" name="email" required><br>
+    Telefon: <input type="text" name="telefon" required><br>
+    Adresa: <input type="text" name="adresa" required><br>
+    Tip garantie:
+    <select name="tip_garantie" required>
+        {% for tip_garantie in tipuri_garantii %}
+            <option value="{{ tip_garantie }}">{{ tip_garantie }}</option>
+        {% endfor %}
+    </select><br>
+    Serie masina:
+    <select name="serie_masina" required>
+        {% for serie in serii_masini %}
+            <option value="{{ serie }}">{{ serie }}</option>
+        {% endfor %}
+    </select><br>
+    <input type="submit" value="Cumpara masina">
+</form>
+
+<form method="POST" action="{{ url_for('clienti') }}" style="margin-top: 50px;">
+
+    Selectare ID client pentru stergere:
+    <select name="ID" required>
+        {% for ID in IDs %}
+            <option value="{{ ID }}">{{ ID }}</option>
+        {% endfor %}
+    </select><br>
+
+    <input type="submit" value="Sterge client">
+</form>
+
+{% endblock %}

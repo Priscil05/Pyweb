@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block tip_garantii %}
+Tipuri de garantii
+{% endblock %}
+
+{% block tip_garantii_content %}
+
+<table border="1" style="border-collapse: collapse; margin-bottom: 50px;">
+    <tr>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Tip de garantie</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Pretul</th>
+    </tr>
+    {% for tip in tip_garantii %}
+        <tr>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ tip[0] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ tip[1] }}</td>
+
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

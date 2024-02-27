@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+
+{% block masini %}
+Masini
+{% endblock %}
+
+{% block masini_content %}
+<table border="1" style="border-collapse: collapse; margin-bottom: 50px;">
+    <tr>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Vanduta</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Marca</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Model</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Serie</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">An Fabricatie</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Culoare</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Motor</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Tip Combustibil</th>
+        <th style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">Pret</th>
+    </tr>
+    {% for masina in masini %}
+        <tr>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ masina[0] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ masina[1] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ masina[2] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ masina[3] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ masina[4] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ masina[5] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ masina[6] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ masina[7] }}</td>
+            <td style="border-right: 2px solid #dddddd; padding-right: 20px; border-bottom: 2px solid #dddddd;">{{ masina[8] }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+
+
+
+<form method="POST" action="{{ url_for('masini') }}" style="margin-top: 100px;">
+    Marca: <input type="text" name="marca" required><br>
+    Model: <input type="text" name="model" required><br>
+    An fabricatie: <input type="text" name="an_fabricatie" required><br>
+    Culoare: <input type="text" name="culoare" required><br>
+    Motor: <input type="number" name="motor" step="0.1" min="1.0" max="5.0" required><br>
+    Tip combustibil: <input type="text" name="tip_combustibil" required><br>
+    Pret: <input type="number" name="pret" step="0.1"  required><br>
+    <input type="submit" value="Adauga masina">
+</form>
+{% endblock %}
